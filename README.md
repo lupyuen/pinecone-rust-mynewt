@@ -29,7 +29,19 @@ Read the articles...
 
 1.  ["Quick Peek of PineCone BL602 RISC-V Evaluation Board"](https://lupyuen.github.io/articles/pinecone)
 
-TODO
+# Building the Firmware
+
+```bash
+git clone --recursive https://github.com/lupyuen/pinecone-rust-mynewt
+cd pinecone-rust-mynewt
+# TODO: Download xpack-riscv-none-embed-gcc here
+newt upgrade
+newt build pinecone_app
+```
+
+TODO: Use `riscv-none-embed-gcc` instead of `riscv64-unknown-elf-gcc`
+
+#  TODO
 
 ## Overview
 
