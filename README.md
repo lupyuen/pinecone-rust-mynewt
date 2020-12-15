@@ -57,6 +57,23 @@ newt build pinecone_app
 
     https://github.com/lupyuen/bl_iot_sdk/blob/jtag/components/bl602/bl602/evb/src/boot/gcc/start.S
 
+1.  Memory map should be...
+
+    ```
+    Name             Origin             Length             Attributes
+    rom              0x0000000021015000 0x000000000000b000 axrl !w
+    flash            0x0000000023000000 0x0000000000400000 axrl !w
+    ram_tcm          0x000000004200c000 0x0000000000036000 axw
+    ram_wifi         0x0000000042042000 0x000000000000a000 axw
+    *default*        0x0000000000000000 0xffffffffffffffff
+    ```
+
+    Based on...
+    
+    customer_app/sdk_app_helloworld/build_out/sdk_app_helloworld.map
+
+    https://github.com/lupyuen/bl_iot_sdk/blob/master/components%2Fbl602%2Fbl602%2Fevb%2Fld%2Fflash_rom.ld#L5
+
 ## Overview
 
 Apache Blinky is a skeleton for new Apache Mynewt projects.  The user downloads
