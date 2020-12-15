@@ -19,7 +19,9 @@
 #
 -->
 
-# Apache Blinky
+# Mynewt + Rust for PineCone BL602 RISC-V Board
+
+TODO
 
 ## Overview
 
