@@ -32,10 +32,14 @@ Read the articles...
 # Building the Firmware
 
 ```bash
+#  Download the source files
 git clone --recursive https://github.com/lupyuen/pinecone-rust-mynewt
 cd pinecone-rust-mynewt
-# TODO: Download xpack-riscv-none-embed-gcc here
 newt upgrade
+#  TODO: Download xpack-riscv-none-embed-gcc here
+
+#  Build the firmware
+export PATH="$PWD/xpack-riscv-none-embed-gcc/bin:$PATH"
 newt build pinecone_app
 ```
 
