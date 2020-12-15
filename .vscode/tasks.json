@@ -1,0 +1,84 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            //  Build firmware
+            "label": "Build Firmware",
+            "type": "shell",
+            "windows": {
+                "command": "cmd",
+                "args": [
+                    "/c",
+                    " newt build pinecone_app && echo ✅ ◾ ️Done! "
+                ]
+            },
+            "osx": {
+                "command": "bash",
+                "args": [
+                    "-c", "-l",
+                    " pkill openocd ; set -e -x ; newt build pinecone_app ; echo ✅ ◾ ️Done! "
+                ]
+            },
+            "linux": {
+                "command": "bash",
+                "args": [
+                    "-c", "-l",
+                    " pkill openocd ; set -e -x ; newt build pinecone_app ; echo ✅ ◾ ️Done! "
+                ]
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [ 
+                {
+                    //  Problem matcher for GNU Linker, e.g. /Users/Luppy/mynewt/stm32bluepill-mynewt-sensor/apps/my_sensor_app/src/ATParser.h:82: undefined reference to `operator delete[](void*)'
+                    "fileLocation": [ "absolute" ],
+                    "pattern": {
+                        "regexp": "^(/.*):(\\d+):\\s+(.*)$",
+                        "file": 1,
+                        "line": 2,
+                        "message": 3,
+                        // "code": 3,
+                        // "severity": 4,
+                    }                    
+                }
+            ],
+            "presentation": {
+                "clear": true
+            }
+        },
+        {
+            //  Generate documentation
+            "label": "📖 Generate Doc",
+            "type": "shell",
+            "windows": {
+                "command": "cmd",
+                "args": [
+                    "/c",
+                    " cargo doc --document-private-items && echo ✅ ◾ ️Done! target/riscv32imac-unknown-none-elf/doc "
+                ]
+            },
+            "osx": {
+                "command": "bash",
+                "args": [
+                    "-c", "-l",
+                    " set -e -x ; cargo doc --document-private-items ; echo ✅ ◾ ️Done! target/riscv32imac-unknown-none-elf/doc "
+                ]
+            },
+            "linux": {
+                "command": "bash",
+                "args": [
+                    "-c", "-l",
+                    " set -e -x ; cargo doc --document-private-items ; echo ✅ ◾ ️Done! target/riscv32imac-unknown-none-elf/doc "
+                ]
+            },
+            "problemMatcher": [],
+            "presentation": {
+                "clear": true
+            }
+        },
+    ]
+}
