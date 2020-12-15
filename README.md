@@ -21,6 +21,12 @@
 
 # Mynewt + Rust for PineCone BL602 RISC-V Board
 
+Read the articles...
+
+1.  ["Debug Rust on PineCone BL602 with VSCode and GDB"](https://lupyuen.github.io/articles/debug)
+
+1.  ["Connect PineCone BL602 to OpenOCD"](https://lupyuen.github.io/articles/openocd)
+
 TODO
 
 ## Overview
