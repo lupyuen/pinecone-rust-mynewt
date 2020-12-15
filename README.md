@@ -45,6 +45,8 @@ newt build pinecone_app
 
 TODO: Use `riscv-none-embed-gcc` instead of `riscv64-unknown-elf-gcc`
 
+See [`compiler/riscv-none-embed/compiler.yml`](compiler/riscv-none-embed/compiler.yml)
+
 #  TODO
 
 ## Overview
