@@ -43,11 +43,19 @@ export PATH="$PWD/xpack-riscv-none-embed-gcc/bin:$PATH"
 newt build pinecone_app
 ```
 
-TODO: Use `riscv-none-embed-gcc` instead of `riscv64-unknown-elf-gcc`
-
-See [`compiler/riscv-none-embed/compiler.yml`](compiler/riscv-none-embed/compiler.yml)
-
 #  TODO
+
+1.  Compile with `riscv-none-embed-gcc` instead of `riscv64-unknown-elf-gcc`
+
+    See [`compiler/riscv-none-embed/compiler.yml`](compiler/riscv-none-embed/compiler.yml)
+
+1.  Mynewt Firmware should look similar to this disassembled Hello World firmware...
+
+    https://github.com/lupyuen/bl_iot_sdk/releases/download/v0.0.4/sdk_app_helloworld.S
+
+1.  Mynewt Firmware should use this Start Code...
+
+    https://github.com/lupyuen/bl_iot_sdk/blob/jtag/components/bl602/bl602/evb/src/boot/gcc/start.S
 
 ## Overview
 
