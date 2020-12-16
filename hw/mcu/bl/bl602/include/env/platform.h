@@ -7,6 +7,8 @@
 #define MCAUSE_INT         0x80000000
 #define MCAUSE_CAUSE       0x7FFFFFFF
 
+#include "clint.h"
+
 #ifdef __ASSEMBLER__
 #define _AC(X,Y)        X
 #define _AT(T,X)        X
