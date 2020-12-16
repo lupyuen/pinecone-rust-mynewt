@@ -17,7 +17,7 @@
  * under the License.
  */
 
-/* BL602 Linker Script. Based on https://github.com/lupyuen/bl_iot_sdk/blob/jtag/components/bl602/bl602/evb/ld/flash_rom.ld#L7-L13 */
+/* BL602 Linker Script. Based on https://github.com/lupyuen/bl_iot_sdk/blob/master/components/bl602/bl602/evb/ld/flash_rom.ld#L7-L13 */
 MEMORY
 {
   flash (rxai!w) : ORIGIN = 0x23000000, LENGTH = 4M

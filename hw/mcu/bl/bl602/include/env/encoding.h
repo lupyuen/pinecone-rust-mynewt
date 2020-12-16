@@ -1,4 +1,4 @@
-//  Based on https://github.com/lupyuen/bl_iot_sdk/blob/jtag/components/bl602/bl602/evb/src/boot/gcc/encoding.h
+//  Based on https://github.com/lupyuen/bl_iot_sdk/blob/master/components/bl602/bl602/evb/src/boot/gcc/encoding.h
 //  TODO: Remove FE310 hardcoding. This file is referenced by repos/apache-mynewt-core/kernel/os/src/arch/rv32imac/os_arch_rv32imac.c
 /*
  * Copyright (c) 2020 Bouffalolab.

@@ -61,7 +61,7 @@ newt build pinecone_app
 
 1.  Mynewt Firmware should use this Start Code...
 
-    https://github.com/lupyuen/bl_iot_sdk/blob/jtag/components/bl602/bl602/evb/src/boot/gcc/start.S
+    https://github.com/lupyuen/bl_iot_sdk/blob/master/components/bl602/bl602/evb/src/boot/gcc/start.S
 
 1.  Memory map should be...
 
@@ -78,7 +78,7 @@ newt build pinecone_app
     
     https://github.com/lupyuen/bl_iot_sdk/releases/download/v0.0.4/sdk_app_helloworld.map
 
-    https://github.com/lupyuen/bl_iot_sdk/blob/jtag/components/bl602/bl602/evb/ld/flash_rom.ld#L7-L13
+    https://github.com/lupyuen/bl_iot_sdk/blob/master/components/bl602/bl602/evb/ld/flash_rom.ld#L7-L13
 
 1.  Fix dependency of rv32imac on fe310...
 

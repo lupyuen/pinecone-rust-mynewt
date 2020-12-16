@@ -1,4 +1,4 @@
-// Based on https://github.com/lupyuen/bl_iot_sdk/blob/jtag/components/bl602/freertos_riscv/config/platform.h
+// Based on https://github.com/lupyuen/bl_iot_sdk/blob/master/components/bl602/freertos_riscv/config/platform.h
 
 #ifndef _SIFIVE_PLATFORM_H
 #define _SIFIVE_PLATFORM_H
