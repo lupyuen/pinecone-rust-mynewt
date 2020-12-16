@@ -18,11 +18,18 @@
  */
 
 /* BL602 Linker Script. Based on https://github.com/lupyuen/bl_iot_sdk/blob/master/components/bl602/bl602/evb/ld/flash_rom.ld#L7-L13 */
+/* TODO: Sync with bsp.yml */
 MEMORY
 {
+  /* Use this memory layout when firmware is loaded into RAM. Based on https://github.com/lupyuen/pinecone-rust/blob/main/memory.x */
+  flash (rxai!w) : ORIGIN = 0x22008000, LENGTH = 48K
+  ram   (wxa!ri) : ORIGIN = 0x22014000, LENGTH = 48K
+
+  /* TODO: Use this memory layout when firmware is loaded into Flash Memory
   flash (rxai!w) : ORIGIN = 0x23000000, LENGTH = 4M
   ram   (wxa!ri) : ORIGIN = 0x4200c000, LENGTH = 216K
-  /* TODO: Add WiFi RAM at 0x4204 2000, length 0xa000*/
+  */
+  /* TODO: Add WiFi RAM at 0x4204 2000, length 0xa000 */
 }
 
 /* TODO: Bootloader not in use. Set Image Header Size to 0x20 when Bootloader is in use */
