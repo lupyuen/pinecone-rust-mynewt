@@ -20,9 +20,16 @@
 #ifndef __MCU_PLIC_H_
 #define __MCU_PLIC_H_
 
+//  BL602 doesn't have a PLIC like FE310. We stub out the functions.
+#define PLIC_REG(x)          unused_plic_reg
+#define PLIC_PRIORITY_OFFSET 0
+#define PLIC_ENABLE_OFFSET   0
+
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+extern int unused_plic_reg;
 
 typedef void (* interrupt_handler_t)(int num);
 /*
