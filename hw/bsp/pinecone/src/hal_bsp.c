@@ -42,8 +42,7 @@ static const struct hal_bsp_mem_dump dump_cfg[] = {
     }
 };
 
-#ifdef NOTUSED
-
+#ifdef TODO  ////
 #if MYNEWT_VAL(SPIFLASH)
 #if MYNEWT_VAL(BUS_DRIVER_PRESENT)
 struct bus_spi_node_cfg flash_spi_cfg = {
@@ -55,6 +54,7 @@ struct bus_spi_node_cfg flash_spi_cfg = {
 };
 #endif
 #endif
+#endif  ////  TODO
 
 static const struct hal_flash *flash_devs[] = {
     [0] = &bl602_flash_dev,
@@ -72,8 +72,6 @@ hal_bsp_flash_dev(uint8_t id)
 
     return flash_devs[id];
 }
-
-#endif  //  NOTUSED
 
 const struct hal_bsp_mem_dump *
 hal_bsp_core_dump(int *area_cnt)
