@@ -21,7 +21,7 @@
 #define H_BL602_HAL_
 
 #include <stdint.h>
-#include <env/encoding.h>
+////#include <env/encoding.h>
 
 #ifdef __cplusplus
  extern "C" {
