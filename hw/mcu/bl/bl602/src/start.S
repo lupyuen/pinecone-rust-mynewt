@@ -8,10 +8,10 @@
 #define MSTATUS_MIE     0x00000008
 
 	.section .init
-	.globl bl602_start
-	.type bl602_start,@function
+	.globl _reset_handler
+	.type _reset_handler,@function
 
-bl602_start:
+_reset_handler:
 	.cfi_startproc
 	.cfi_undefined ra
 .option push
