@@ -35,7 +35,7 @@ Read the articles...
 #  Download the source files
 git clone --recursive https://github.com/lupyuen/pinecone-rust-mynewt
 cd pinecone-rust-mynewt
-newt upgrade
+newt install
 #  TODO: Download xpack-riscv-none-embed-gcc here
 
 #  Build the firmware
@@ -44,6 +44,10 @@ newt build pinecone_app
 ```
 
 #  TODO
+
+1.  BL602 MCU Definition: [`hw/mcu/bl/bl602/pkg.yml`](hw/mcu/bl/bl602/pkg.yml)
+
+1.  PineCone Board Support Package: [`hw/bsp/pinecone/bsp.yml`](hw/bsp/pinecone/bsp.yml)
 
 1.  Compile with `riscv-none-embed-gcc` instead of `riscv64-unknown-elf-gcc`
 
@@ -70,43 +74,6 @@ newt build pinecone_app
 
     Based on...
     
-    customer_app/sdk_app_helloworld/build_out/sdk_app_helloworld.map
+    https://github.com/lupyuen/bl_iot_sdk/releases/download/v0.0.4/sdk_app_helloworld.map
 
-    https://github.com/lupyuen/bl_iot_sdk/blob/master/components%2Fbl602%2Fbl602%2Fevb%2Fld%2Fflash_rom.ld#L5
-
-## Overview
-
-Apache Blinky is a skeleton for new Apache Mynewt projects.  The user downloads
-this skeleton by issuing the "newt new" command (using Apache Newt).  Apache
-blinky also contains an example app and target for use with Apache Mynewt to
-help you get started.
-
-## Building
-
-Apache Blinky contains an example Apache Mynewt application called blinky.
-When executed on suitably equipped hardware, this application repeatedly blinks
-an LED.  The below procedure describes how to build this application for the
-Apache Mynewt simulator.
-
-1. Download and install Apache Newt.
-
-You will need to download the Apache Newt tool, as documented in the [Getting Started Guide](https://mynewt.apache.org/latest/get_started/index.html).
-
-2. Download the Apache Mynewt Core package (executed from the blinky directory).
-
-```no-highlight
-    $ newt install
-```
-
-3. Build the blinky app for the sim platform using the "my_blinky_sim" target
-(executed from the blinky directory).
-
-```no-highlight
-    $ newt build my_blinky_sim
-```
-
-The Apache Newt tool should indicate the location of the generated blinky
-executable.  Since the simulator does not have an LED to blink, this version of
-blinky is not terribly exciting - a printed message indicating the current LED
-state.  To learn how to build blinky for actual hardware, please see the
-[Getting Started Guide](https://mynewt.apache.org/latest/get_started/index.html).
+    https://github.com/lupyuen/bl_iot_sdk/blob/jtag/components/bl602/bl602/evb/ld/flash_rom.ld#L7-L13
