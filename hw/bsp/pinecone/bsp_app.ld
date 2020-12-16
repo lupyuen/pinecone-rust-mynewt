@@ -17,11 +17,17 @@
  * under the License.
  */
 
+/* BL602 Linker Script. Based on https://github.com/lupyuen/bl_iot_sdk/blob/jtag/components/bl602/bl602/evb/ld/flash_rom.ld#L7-L13 */
 MEMORY
 {
-  flash (rxai!w) : ORIGIN = 0x20400000, LENGTH = 512M
-  ram (wxa!ri) : ORIGIN = 0x80000000, LENGTH = 16K
+  flash (rxai!w) : ORIGIN = 0x23000000, LENGTH = 4M
+  ram   (wxa!ri) : ORIGIN = 0x4200c000, LENGTH = 216K
+  /* TODO: Add WiFi RAM at 0x4204 2000, length 0xa000*/
 }
 
+/* TODO: Bootloader not in use. Set Image Header Size to 0x20 when Bootloader is in use */
+_imghdr_size = 0x0;
+
 /* This linker script is used for images and thus contains an image header */
-_imghdr_size = 0x20;
+/* TODO: Uncomment the next line when Bootloader is in use */
+/* _imghdr_size = 0x20; */
