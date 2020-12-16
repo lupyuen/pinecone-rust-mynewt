@@ -4,7 +4,7 @@
 #ifndef ENTRY_S
 #define ENTRY_S
 
-#include "encoding.h"
+#include "env/encoding.h"
 #include "bits.h"
 
   .section      .text.entry	
