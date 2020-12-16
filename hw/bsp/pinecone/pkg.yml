@@ -17,21 +17,21 @@
 # under the License.
 #
 
-pkg.name: hw/bsp/hifive1
-pkg.type: bsp
-pkg.description: BSP definition for the hifive board.
-pkg.author: "Apache Mynewt <dev@mynewt.apache.org>"
-pkg.homepage: "http://mynewt.apache.org/"
+pkg.name:        hw/bsp/pinecone
+pkg.type:        bsp
+pkg.description: BSP definition for PineCone BL602 Board
+pkg.author:      "Lee Lup Yuen <luppy@appkaki.com>"
+pkg.homepage:    "https://github.com/lupyuen"
 pkg.keywords:
-    - hifive
+    - pinecone
+    - bl602
     - riscv
 
 pkg.deps:
-    - "@apache-mynewt-core/hw/mcu/sifive/fe310"
+    - "hw/mcu/bl/bl602"
     - "@apache-mynewt-core/libc/baselibc"
 
 pkg.deps.UART_0:
     - "@apache-mynewt-core/hw/drivers/uart/uart_hal"
 
 pkg.cflags: -march=rv32imac -mabi=ilp32
-
