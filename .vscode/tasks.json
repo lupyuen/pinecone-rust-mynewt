@@ -18,14 +18,14 @@
                 "command": "bash",
                 "args": [
                     "-c", "-l",
-                    " pkill openocd ; export PATH=\"$PWD/xpack-riscv-none-embed-gcc/bin:$PATH\" ; set -e -x ; newt build pinecone_app ; echo ✅ ◾ ️Done! "
+                    " scripts/build-app.sh && echo ✅ ◾ ️Done! "
                 ]
             },
             "linux": {
                 "command": "bash",
                 "args": [
                     "-c", "-l",
-                    " pkill openocd ; export PATH=\"$PWD/xpack-riscv-none-embed-gcc/bin:$PATH\" ; set -e -x ; newt build pinecone_app ; echo ✅ ◾ ️Done! "
+                    " scripts/build-app.sh && echo ✅ ◾ ️Done! "
                 ]
             },
             "group": {
