@@ -20,7 +20,11 @@
                 "set breakpoint pending on",
 
                 //  Set breakpoints
-                "break main",  //  Break at main()
+                "break main",                             //  Break at main()
+                "break __assert_func",                    //  Break for any C assert failures
+                "break os_default_irq",                   //  Break for any Mynewt unhandled interrupts
+                //  "break core::panicking::panic",       //  Break for any Rust assert failures and panics
+                //  "break core::result::unwrap_failed",  //  Break for any Rust unwrap and expect failures
 
                 //  Launch OpenOCD. Based on https://www.justinmklam.com/posts/2017/10/vscode-debugger-setup/
                 "target remote | xpack-openocd/bin/openocd -c \"gdb_port pipe; log_output openocd.log\" -f openocd.cfg ",
