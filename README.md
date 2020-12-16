@@ -77,3 +77,13 @@ newt build pinecone_app
     https://github.com/lupyuen/bl_iot_sdk/releases/download/v0.0.4/sdk_app_helloworld.map
 
     https://github.com/lupyuen/bl_iot_sdk/blob/jtag/components/bl602/bl602/evb/ld/flash_rom.ld#L7-L13
+
+1.  Fix dependency of rv32imac on fe310...
+
+    ```
+    Error: In file included from repos/apache-mynewt-core/kernel/os/include/os/os_fault.h:24,
+                 from repos/apache-mynewt-core/libc/baselibc/include/assert.h:24,
+                 from repos/apache-mynewt-core/hw/hal/src/hal_flash.c:21:
+    repos/apache-mynewt-core/kernel/os/include/os/arch/rv32imac/os/os_arch.h:24:10: fatal error: mcu/fe310.h: No such file or directory
+    #include "mcu/fe310.h"
+    ```
