@@ -25,7 +25,7 @@ MEMORY
   flash (rxai!w) : ORIGIN = 0x22008000, LENGTH = 48K
   ram   (wxa!ri) : ORIGIN = 0x22014000, LENGTH = 48K
 
-  /* TODO: Use this memory layout when firmware is loaded into Flash Memory. Based on Based on https://github.com/lupyuen/bl_iot_sdk/blob/master/components/bl602/bl602/evb/ld/flash_rom.ld
+  /* TODO: Use this memory layout when firmware is loaded into Flash Memory. Based on https://github.com/lupyuen/bl_iot_sdk/blob/master/components/bl602/bl602/evb/ld/flash_rom.ld
   flash (rxai!w) : ORIGIN = 0x23000000, LENGTH = 4M
   ram   (wxa!ri) : ORIGIN = 0x4200c000, LENGTH = 216K
   */
