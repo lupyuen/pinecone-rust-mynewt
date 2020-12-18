@@ -87,7 +87,7 @@ bsp.flash_map:
 # bsp.flash_map:
 #     areas:
 #         # System areas.
-#         # TODO: Bootloader not in use. When used, move Bootloader to 0x2300 0000 and move other areas accordingly
+#         # TODO: Bootloader not in use. When used, move Bootloader to 0x2300 0000 and shift the other areas accordingly
 #         FLASH_AREA_BOOTLOADER:
 #             device:  0
 #             offset:  0x2330d000
