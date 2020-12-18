@@ -36,8 +36,8 @@ bsp.debugscript.WINDOWS.OVERWRITE:      "hw/bsp/pinecone/bsp_debug.cmd"
 # BL602 Flash Memory Map
 # TODO: Sync with bsp_app.ld
 
-# Use this memory layout when firmware is loaded into RAM
-# BL602 RAM starts at 0x2200 8000, size 48 KB
+# Use this memory layout when firmware is loaded into cache memory
+# BL602 Instruction Cache Memory starts at 0x2200 8000, size 48 KB
 # Based on https://github.com/lupyuen/pinecone-rust/blob/main/memory.x
 bsp.flash_map:
     areas:
