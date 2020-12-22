@@ -10,3 +10,6 @@
 [submodule "repos/apache-mynewt-mcumgr"]
 	path = repos/apache-mynewt-mcumgr
 	url = https://github.com/apache/mynewt-mcumgr
+[submodule "hw/mcu/bl/bl602/ext/bl_iot_sdk"]
+	path = hw/mcu/bl/bl602/ext/bl_iot_sdk
+	url = https://github.com/lupyuen/bl_iot_sdk
