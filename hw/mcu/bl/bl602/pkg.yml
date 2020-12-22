@@ -34,6 +34,10 @@ pkg.deps.BUS_DRIVER_PRESENT:
 
 # Select the BL602 IoT SDK folders to be included for the build
 pkg.src_dirs:
-    - "ext"
+    - "ext/bl_iot_sdk/components/hal_drv/bl602_hal"
 
-pkg.cflags: -march=rv32imac -mabi=ilp32
+pkg.cflags: 
+    - -march=rv32imac 
+    - -mabi=ilp32
+    # Where the BL602 IoT SDK include files are located
+    # - -I
