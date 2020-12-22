@@ -39,12 +39,16 @@ pkg.src_dirs:
 pkg.cflags: 
     - -march=rv32imac 
     - -mabi=ilp32
+    # BL602 IoT SDK definitions
+    - -DARCH_RISCV
     # Where the BL602 IoT SDK include files are located
     - -Ihw/mcu/bl/bl602/ext/bl_iot_sdk/components/hal_drv/bl602_hal
     - -Ihw/mcu/bl/bl602/ext/bl_iot_sdk/components/stage/blog
+    - -Ihw/mcu/bl/bl602/ext/bl_iot_sdk/components/stage/cli/cli/include
     - -Ihw/mcu/bl/bl602/ext/bl_iot_sdk/components/utils/include
     - -Ihw/mcu/bl/bl602/ext/bl_iot_sdk/components/bl602/bl602_std/bl602_std/Common/sim_print
     - -Ihw/mcu/bl/bl602/ext/bl_iot_sdk/components/bl602/bl602_std/bl602_std/Common/soft_crc
     - -Ihw/mcu/bl/bl602/ext/bl_iot_sdk/components/bl602/bl602_std/bl602_std/Device/Bouffalo/BL602/Peripherals
+    - -Ihw/mcu/bl/bl602/ext/bl_iot_sdk/components/bl602/bl602_std/bl602_std/RISCV/Core/Include
     - -Ihw/mcu/bl/bl602/ext/bl_iot_sdk/components/bl602/bl602_std/bl602_std/RISCV/Device/Bouffalo/BL602/Startup
     - -Ihw/mcu/bl/bl602/ext/bl_iot_sdk/components/bl602/bl602_std/bl602_std/StdDriver/Inc
