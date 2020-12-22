@@ -32,4 +32,8 @@ pkg.deps:
 pkg.deps.BUS_DRIVER_PRESENT:
     - "@apache-mynewt-core/hw/bus/drivers/spi_hal"
 
+# Select the BL602 IoT SDK folders to be included for the build
+pkg.src_dirs:
+    - "ext"
+
 pkg.cflags: -march=rv32imac -mabi=ilp32
