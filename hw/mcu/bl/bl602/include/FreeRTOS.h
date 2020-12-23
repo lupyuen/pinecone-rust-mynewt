@@ -3,6 +3,8 @@
 #ifndef __BL602_FREERTOS_H
 #define __BL602_FREERTOS_H
 
+#include <stdint.h>
+
 //  Used in hw/mcu/bl/bl602/ext/bl_iot_sdk/components/utils/include/utils_log.h
 #define __FILENAME__ __FILE__
 
