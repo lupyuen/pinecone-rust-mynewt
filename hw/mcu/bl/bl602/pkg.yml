@@ -46,6 +46,8 @@ pkg.cflags:
     - -Ihw/mcu/bl/bl602/ext/bl_iot_sdk/components/stage/blog
     - -Ihw/mcu/bl/bl602/ext/bl_iot_sdk/components/stage/cli/cli/include
     - -Ihw/mcu/bl/bl602/ext/bl_iot_sdk/components/stage/yloop/include
+    - -Ihw/mcu/bl/bl602/ext/bl_iot_sdk/components/sys/bloop/bloop/include
+    - -Ihw/mcu/bl/bl602/ext/bl_iot_sdk/components/sys/bloop/looprt/include
     - -Ihw/mcu/bl/bl602/ext/bl_iot_sdk/components/utils/include
     - -Ihw/mcu/bl/bl602/ext/bl_iot_sdk/components/bl602/bl602_std/bl602_std/Common/sim_print
     - -Ihw/mcu/bl/bl602/ext/bl_iot_sdk/components/bl602/bl602_std/bl602_std/Common/soft_crc
