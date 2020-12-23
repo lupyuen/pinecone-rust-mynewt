@@ -9,4 +9,9 @@
 //  Placeholder declarations. Should never be called.
 void vTaskDelay(int xTicksToDelay); 
 
+int xPortGetFreeHeapSize();
+void *pvPortMalloc();
+void vPortFree(void *);
+int xPortIsInsideInterrupt();
+
 #endif  //  __BL602_FREERTOS_H
