@@ -5,16 +5,21 @@
 
 #define pdPASS 0
 #define pdTRUE 0
+#define pdFALSE 0
 #define portTICK_PERIOD_MS 1
 
 #define xTimerHandle int
 #define TimerHandle_t int
 
-int xTimerStop(int, int);
+typedef void (*TimerCallbackFunction_t)(void);
+
 void *pvTimerGetTimerID(int);
 int xTimerChangePeriod(int, int, int);
 int xTimerStartFromISR();
 int xTimerCreate();
+void xTimerStart(int, int);
+int xTimerStop(int, int);
+int xTimerDelete(int, int);
 int pdMS_TO_TICKS();
 
 #endif  //  __BL602_TIMERS_H

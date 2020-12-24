@@ -16,6 +16,7 @@ int xTaskIncrementTick();
 void vTaskSwitchContext();
 int xTaskGetTickCount();
 int xTaskGetTickCountFromISR();
+void vTaskStepTick(int);
 
 typedef void TaskFunction_t(void *para);
 int xTaskCreate(    TaskFunction_t pvTaskCode,
@@ -25,5 +26,6 @@ int xTaskCreate(    TaskFunction_t pvTaskCode,
                             int uxPriority,
                             TaskHandle_t *pxCreatedTask
                           );
+int xTaskCreateStatic();
 
 #endif  //  __BL602_TASK_H

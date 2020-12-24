@@ -19,5 +19,6 @@ int xSemaphoreGive(SemaphoreHandle_t);
 int xSemaphoreGiveFromISR(SemaphoreHandle_t, int *);
 SemaphoreHandle_t xSemaphoreCreateBinary();
 SemaphoreHandle_t xSemaphoreCreateMutex();
+SemaphoreHandle_t xSemaphoreCreateMutexStatic();
 
 #endif  //  __BL602_SEMPHR_H
