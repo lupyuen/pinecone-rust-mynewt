@@ -4,7 +4,7 @@
 #define __BL602_SEMPHR_H
 
 //  TODO: Change to Mynewt Semaphore
-#define SemaphoreHandle_t int
+#define SemaphoreHandle_t void *
 
 //  TODO: Change to Mynewt Semaphore
 #define StaticSemaphore_t int
@@ -14,7 +14,10 @@
 
 #define portMAX_DELAY 0
 
-int xSemaphoreTake(int, int);
-int xSemaphoreGive(int);
+int xSemaphoreTake(SemaphoreHandle_t, int);
+int xSemaphoreGive(SemaphoreHandle_t);
+int xSemaphoreGiveFromISR(SemaphoreHandle_t, int *);
+SemaphoreHandle_t xSemaphoreCreateBinary();
+SemaphoreHandle_t xSemaphoreCreateMutex();
 
 #endif  //  __BL602_SEMPHR_H
