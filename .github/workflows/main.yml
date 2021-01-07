@@ -87,7 +87,7 @@ jobs:
     - name: Install xPack RISC-V Toolchain xpack-riscv-none-embed-gcc
       if:   steps.cache-toolchain.outputs.cache-hit != 'true'  # Install toolchain if not found in cache
       run:  |
-        wget -qO- https://github.com/xpack-dev-tools/riscv-none-embed-gcc-xpack/releases/download/v8.3.0-2.3/xpack-riscv-none-embed-gcc-8.3.0-2.3-linux-x64.tar.gz | tar -xj
+        wget -qO- https://github.com/xpack-dev-tools/riscv-none-embed-gcc-xpack/releases/download/v8.3.0-2.3/xpack-riscv-none-embed-gcc-8.3.0-2.3-linux-x64.tar.gz | tar -xz
         mv xpack-riscv-none-embed-gcc-* xpack-riscv-none-embed-gcc
 
     #########################################################################################
