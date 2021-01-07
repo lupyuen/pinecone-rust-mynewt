@@ -32,10 +32,11 @@ pkg.deps:
 pkg.deps.BUS_DRIVER_PRESENT:
     - "@apache-mynewt-core/hw/bus/drivers/spi_hal"
 
-# Select the BL602 IoT SDK folders to be included for the build
 pkg.src_dirs:
     - src
+    # Select the BL602 IoT SDK folders to be included for the build
     - ext/bl_iot_sdk/components/hal_drv/bl602_hal
+    - ext/bl_iot_sdk/components/bl602/bl602_std/bl602_std/StdDriver/Src
 
 pkg.cflags: 
     - -march=rv32imac 
@@ -43,6 +44,7 @@ pkg.cflags:
     # BL602 IoT SDK definitions
     - -DARCH_RISCV
     # Where the BL602 IoT SDK include files are located
+    - -Ihw/mcu/bl/bl602/ext/bl_iot_sdk/components/bl602/bl602_std/bl602_std/Common/partition
     - -Ihw/mcu/bl/bl602/ext/bl_iot_sdk/components/bl602/bl602_std/bl602_std/Common/sim_print
     - -Ihw/mcu/bl/bl602/ext/bl_iot_sdk/components/bl602/bl602_std/bl602_std/Common/soft_crc
     - -Ihw/mcu/bl/bl602/ext/bl_iot_sdk/components/bl602/bl602_std/bl602_std/Device/Bouffalo/BL602/Peripherals
@@ -60,3 +62,138 @@ pkg.cflags:
     - -Ihw/mcu/bl/bl602/ext/bl_iot_sdk/components/sys/bloop/looprt/include
     - -Ihw/mcu/bl/bl602/ext/bl_iot_sdk/components/sys/bloop/loopset/include
     - -Ihw/mcu/bl/bl602/ext/bl_iot_sdk/components/utils/include
+
+# GCC options for BL602 IoT SDK:
+# /Users/Luppy/pinecone/bl_iot_sdk/toolchain/riscv/Darwin/bin/riscv64-unknown-elf-gcc 
+# -std=gnu99 -Os -gdwarf 
+# -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -fshort-enums -ffreestanding -fno-strict-aliasing 
+# -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare 
+# -DCONF_USER_ENABLE_PSRAM 
+# -Wno-old-style-declaration -march=rv32imfc -mabi=ilp32f -save-temps=obj 
+# -DconfigUSE_TICKLESS_IDLE=0 
+# -DFEATURE_WIFI_DISABLE=1 
+# -DCFG_FREERTOS 
+# -DARCH_RISCV 
+# -DBL602 
+# -DCONFIG_SET_TX_PWR 
+# -DCFG_BLE_ENABLE 
+# -DBFLB_BLE 
+# -DCFG_BLE 
+# -DCFG_SLEEP 
+# -DOPTIMIZE_DATA_EVT_FLOW_FROM_CONTROLLER 
+# -DCFG_CON=2 
+# -DCFG_BLE_TX_BUFF_DATA=2 
+# -DCONFIG_BT_ALLROLES 
+# -DCONFIG_BT_CENTRAL 
+# -DCONFIG_BT_OBSERVER 
+# -DCONFIG_BT_PERIPHERAL 
+# -DCONFIG_BT_BROADCASTER 
+# -DCONFIG_BT_L2CAP_DYNAMIC_CHANNEL 
+# -DCONFIG_BT_GATT_CLIENT 
+# -DCONFIG_BT_CONN 
+# -DCONFIG_BT_GATT_DIS_PNP 
+# -DCONFIG_BT_GATT_DIS_SERIAL_NUMBER 
+# -DCONFIG_BT_GATT_DIS_FW_REV 
+# -DCONFIG_BT_GATT_DIS_HW_REV 
+# -DCONFIG_BT_GATT_DIS_SW_REV 
+# -DCONFIG_BT_ECC 
+# -DCONFIG_BT_GATT_DYNAMIC_DB 
+# -DCONFIG_BT_GATT_SERVICE_CHANGED 
+# -DCONFIG_BT_KEYS_OVERWRITE_OLDEST 
+# -DCONFIG_BT_KEYS_SAVE_AGING_COUNTER_ON_PAIRING 
+# -DCONFIG_BT_GAP_PERIPHERAL_PREF_PARAMS 
+# -DCONFIG_BT_BONDABLE 
+# -DCONFIG_BT_HCI_VS_EVT_USER 
+# -DCONFIG_BT_ASSERT  
+# -DCONFIG_BT_SMP 
+# -DCONFIG_BT_SIGNING 
+# -DCONFIG_BT_SETTINGS_CCC_LAZY_LOADING 
+# -DCONFIG_BT_SETTINGS_USE_PRINTK 
+# -DCFG_BLE_STACK_DBG_PRINT -Wno-unused-const-variable -Wno-unused-but-set-variable -Wno-format 
+# -D BL_SDK_VER=\"`cat /Users/Luppy/pinecone/bl_iot_sdk/version.txt |head -n1`\" 
+# -D BL_SDK_PHY_VER=\"`cat /Users/Luppy/pinecone/bl_iot_sdk/version.txt |head -n2|tail -n1`\" 
+# -D BL_SDK_RF_VER=\"`cat /Users/Luppy/pinecone/bl_iot_sdk/version.txt |head -n3|tail -n1`\" 
+# -D BL_CHIP_NAME=\"BL602\" -MMD -MP 
+# -D BL_SDK_VER=\"`cat /Users/Luppy/pinecone/bl_iot_sdk/version.txt |head -n1`\" 
+# -D BL_SDK_PHY_VER=\"`cat /Users/Luppy/pinecone/bl_iot_sdk/version.txt |head -n2|tail -n1`\" 
+# -D BL_SDK_RF_VER=\"`cat /Users/Luppy/pinecone/bl_iot_sdk/version.txt |head -n3|tail -n1`\"  
+# -DARCH_RISCV 
+# -DCONFIG_PSM_EASYFLASH_SIZE=16384 
+# -DconfigUSE_TICKLESS_IDLE=0 
+# -DFEATURE_WIFI_DISABLE=1 
+# -DCFG_BLE_ENABLE 
+# -DCONF_USER_ENABLE_PSRAM 
+# -DCONF_USER_ENABLE_VFS_ROMFS 
+# -DCFG_COMPONENT_BLOG_ENABLE=0 
+# -D __FILENAME__=\"main.c\" 
+# -D __FILENAME_WO_SUFFIX__=\"main\" 
+# -D __FILENAME_WO_SUFFIX_DEQUOTED__=main 
+# -D __COMPONENT_NAME__=\"sdk_app_helloworld\" 
+# -D __COMPONENT_NAME_DEQUOTED__=sdk_app_helloworld 
+# -D __COMPONENT_FILE_NAME__=\"sdk_app_helloworldmain\" 
+# -D__COMPONENT_FILE_NAMED__=sdk_app_helloworld.main 
+# -D__COMPONENT_FILE_NAME_DEQUOTED__=sdk_app_helloworldmain 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/include 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/bl602/bl602 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/bl602/bl602/include 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/bl602/bl602_std 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/bl602/bl602_std/include 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/bl602/bl602_std/bl602_std/StdDriver/Inc 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/bl602/bl602_std/bl602_std/Device/Bouffalo/BL602/Peripherals 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/bl602/bl602_std/bl602_std/RISCV/Device/Bouffalo/BL602/Startup 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/bl602/bl602_std/bl602_std/RISCV/Core/Include 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/bl602/bl602_std/bl602_std/Include 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/bl602/bl602_std/bl602_std/Common/platform_print 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/bl602/bl602_std/bl602_std/Common/soft_crc 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/bl602/bl602_std/bl602_std/Common/partition 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/bl602/bl602_std/bl602_std/Common/xz 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/bl602/bl602_std/bl602_std/Common/cipher_suite/inc 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/bl602/bl602_std/bl602_std/Common/ring_buffer 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/stage/blfdt 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/stage/blfdt/include 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/stage/blfdt/inc 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/sys/blmtd 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/sys/blmtd/include 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/sys/blmtd/include 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/stage/blog 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/stage/blog/include 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/stage/blog 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/stage/blog_testc 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/stage/blog_testc/include 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/stage/blog_testc 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/sys/bloop/bloop 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/sys/bloop/bloop/include 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/sys/bloop/bloop/include 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/sys/bltime 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/sys/bltime/include 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/sys/bltime/include 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/stage/cli 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/stage/cli/include 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/stage/cli/cli/include 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/bl602/freertos_riscv_ram 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/bl602/freertos_riscv_ram/include 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/bl602/freertos_riscv_ram/config 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/bl602/freertos_riscv_ram/portable/GCC/RISC-V 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/bl602/freertos_riscv_ram/portable/GCC/RISC-V/chip_specific_extensions/RV32F_float_abi_single 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/bl602/freertos_riscv_ram/panic 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/hal_drv 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/hal_drv/include 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/hal_drv/bl602_hal 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/sys/bloop/looprt 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/sys/bloop/looprt/include 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/sys/bloop/loopset 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/sys/bloop/loopset/include 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/fs/romfs 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/fs/romfs/include 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/utils 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/utils/include 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/fs/vfs 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/fs/vfs/include 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/fs/vfs/posix/include 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/stage/yloop 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/stage/yloop/include 
+# -I /Users/Luppy/pinecone/bl_iot_sdk/components/stage/yloop/include  
+# -I . 
+# -c /Users/Luppy/pinecone/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c 
+# -o main.o
