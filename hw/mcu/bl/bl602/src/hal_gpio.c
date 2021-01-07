@@ -22,6 +22,7 @@
 #include <env/platform.h>
 #include <bsp/bsp.h>
 #include <mcu/plic.h>
+#include <bl_gpio.h>
 
 /* GPIO interrupts */
 #define HAL_GPIO_MAX_IRQ        24
@@ -50,28 +51,22 @@ static struct hal_gpio_irq hal_gpio_irqs[HAL_GPIO_MAX_IRQ];
 int
 hal_gpio_init_in(int pin, hal_gpio_pull_t pull)
 {
-#ifdef TODO  ////
-    uint32_t mask = 1 << pin;
-
-    GPIO_REG(GPIO_INPUT_EN) |= mask;
-    GPIO_REG(GPIO_OUTPUT_EN) &= ~mask;
-    GPIO_REG(GPIO_IOF_EN) &= ~mask;
-    GPIO_REG(GPIO_IOF_SEL) &= ~mask;
-
+    uint8_t pullup = 0;
+    uint8_t pulldown = 0;
     switch (pull) {
     case HAL_GPIO_PULL_UP:
-        GPIO_REG(GPIO_PULLUP_EN) |= mask;
+        pullup = 1;
         break;
     case HAL_GPIO_PULL_DOWN:
-        /* Pull down not supported */
+        pulldown = 1;
+        break;
     case HAL_GPIO_PULL_NONE:
+        break;
     default:
-        GPIO_REG(GPIO_PULLUP_EN) &= mask;
         break;
     }
-#endif  ////  TODO
-
-    return 0;
+    int rc = bl_gpio_enable_input(pin, pullup, pulldown);
+    return rc;
 }
 
 /**
@@ -88,18 +83,12 @@ hal_gpio_init_in(int pin, hal_gpio_pull_t pull)
 int
 hal_gpio_init_out(int pin, int val)
 {
-#ifdef TODO  ////
-    uint32_t mask = 1 << pin;
-
-    GPIO_REG(GPIO_OUTPUT_EN) |= mask;
-    GPIO_REG(GPIO_INPUT_EN) &= ~mask;
-    if (val) {
-        GPIO_REG(GPIO_OUTPUT_VAL) |= mask;
-    } else {
-        GPIO_REG(GPIO_OUTPUT_VAL) &= ~mask;
-    }
-#endif  ////  TODO
-    return 0;
+    uint8_t pullup = 0;
+    uint8_t pulldown = 0;
+    int rc = bl_gpio_enable_output(pin, pullup, pulldown);
+    if (rc != 0) { return rc; }
+    rc = bl_gpio_output_set(pin, val);
+    return rc;
 }
 
 /**
@@ -113,15 +102,7 @@ hal_gpio_init_out(int pin, int val)
 void
 hal_gpio_write(int pin, int val)
 {
-#ifdef TODO  ////
-    uint32_t mask = 1 << pin;
-
-    if (val) {
-        GPIO_REG(GPIO_OUTPUT_VAL) |= mask;
-    } else {
-        GPIO_REG(GPIO_OUTPUT_VAL) &= ~mask;
-    }
-#endif  ////  TODO
+    bl_gpio_output_set(pin, val);
 }
 
 /**
@@ -136,10 +117,8 @@ hal_gpio_write(int pin, int val)
 int
 hal_gpio_read(int pin)
 {
-#ifdef TODO  ////
-    return (GPIO_REG(GPIO_INPUT_VAL) & (1 << pin)) ? 1 : 0;
-#endif  ////  TODO
-    return 0;  ////
+    int val = bl_gpio_input_get_value(pin);
+    return val;
 }
 
 /**
@@ -154,13 +133,10 @@ hal_gpio_read(int pin)
 int
 hal_gpio_toggle(int pin)
 {
-#ifdef TODO  ////
-    uint32_t mask = 1 << pin;
-    uint32_t val = GPIO_REG(GPIO_OUTPUT_VAL) ^ mask;
-    GPIO_REG(GPIO_OUTPUT_VAL) = val;
-    return !!(val & mask);
-#endif  ////  TODO
-    return 0;  ////
+    int val = bl_gpio_input_get_value(pin);
+    val = (val == 0) ? 1 : 0;
+    bl_gpio_output_set(pin, val);
+    return val;
 }
 
 #ifdef TODO  ////

@@ -56,17 +56,22 @@ main(int argc, char **argv)
     sysinit();
 
     //  Set GPIO 11 (Blue), 14 (Green), 17 (Red) to output (no pullup, no pulldown)
-    bl_gpio_enable_output(11, 0, 0);
-    bl_gpio_enable_output(14, 0, 0);
-    bl_gpio_enable_output(17, 0, 0);
-
     //  Switch off the 3 LEDs (1 = Off)
-    bl_gpio_output_set(11, 1);
-    bl_gpio_output_set(14, 1);
-    bl_gpio_output_set(17, 1);
+    #define LED_BLUE_PIN  11
+    #define LED_GREEN_PIN 14
+    #define LED_RED_PIN   17
+    hal_gpio_init_out(LED_BLUE_PIN,  1);
+    hal_gpio_init_out(LED_GREEN_PIN, 1);
+    hal_gpio_init_out(LED_RED_PIN,   1);
 
     //  Switch on Blue LED
-    bl_gpio_output_set(11, 0);
+    //  hal_gpio_init_out(LED_BLUE_PIN,  0);
+
+    //  Switch on Green LED
+    hal_gpio_init_out(LED_GREEN_PIN, 0);
+
+    //  Switch on Red LED
+    //  hal_gpio_init_out(LED_RED_PIN,   0);
 
     //  Loop forever
     for(;;) {}
