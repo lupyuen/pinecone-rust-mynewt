@@ -28,6 +28,3 @@ pkg.keywords:
 
 pkg.deps:
     - "@apache-mynewt-core/hw/hal"
-
-pkg.src_dirs:
-####    - "src/ext/freedom-e-sdk_3235929/bsp"

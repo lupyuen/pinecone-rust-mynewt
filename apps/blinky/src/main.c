@@ -28,6 +28,9 @@
 #include "mcu/mcu_sim.h"
 #endif
 
+int bl_gpio_enable_output(uint8_t pin, uint8_t pullup, uint8_t pulldown);
+int bl_gpio_output_set(uint8_t pin, uint8_t value);
+
 static volatile int g_task1_loops;
 
 /* For LED toggling */
@@ -52,6 +55,28 @@ main(int argc, char **argv)
 
     sysinit();
 
+    //  Set GPIO 11 (Blue), 14 (Green), 17 (Red) to output (no pullup, no pulldown)
+    //  Switch off the 3 LEDs (1 = Off)
+    #define LED_BLUE_PIN  11
+    #define LED_GREEN_PIN 14
+    #define LED_RED_PIN   17
+    hal_gpio_init_out(LED_BLUE_PIN,  1);
+    hal_gpio_init_out(LED_GREEN_PIN, 1);
+    hal_gpio_init_out(LED_RED_PIN,   1);
+
+    //  Switch on Blue LED
+    //  hal_gpio_init_out(LED_BLUE_PIN,  0);
+
+    //  Switch on Green LED
+    hal_gpio_init_out(LED_GREEN_PIN, 0);
+
+    //  Switch on Red LED
+    //  hal_gpio_init_out(LED_RED_PIN,   0);
+
+    //  Loop forever
+    for(;;) {}
+
+#ifdef NOTUSED
     g_led_pin = LED_BLINK_PIN;
     hal_gpio_init_out(g_led_pin, 1);
 
@@ -65,6 +90,7 @@ main(int argc, char **argv)
         hal_gpio_toggle(g_led_pin);
     }
     assert(0);
+#endif  //  NOTUSED
 
     return rc;
 }
