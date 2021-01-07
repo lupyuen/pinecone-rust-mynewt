@@ -4,8 +4,6 @@ _Debugging Mynewt Firmware with VSCode_
 
 # Mynewt + Rust for PineCone BL602 RISC-V Board
 
-__NOTE: This is the EXPERIMENTAL `gpio` branch that supports GPIO__
-
 Read the articles...
 
 1.  ["Porting Mynewt to PineCone BL602"](https://lupyuen.github.io/articles/mynewt)
