@@ -22,11 +22,6 @@
 #include <bsp/bsp.h>          //  Board Support Package
 #include <hal/hal_gpio.h>     //  Mynewt HAL for GPIO
 
-//  Define the LED GPIOs: 11 (Blue), 14 (Green), 17 (Red)
-#define LED_BLUE_PIN  11
-#define LED_GREEN_PIN 14
-#define LED_RED_PIN   17
-
 int main(int argc, char **argv) {
     //  Initialise Mynewt drivers
     sysinit();
