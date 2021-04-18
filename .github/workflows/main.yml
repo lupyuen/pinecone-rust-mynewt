@@ -10,10 +10,6 @@ on:
   push:
     branches: [ main ]
     
-  # Also run this Workflow when a Pull Request is created or updated in this Branch
-  pull_request:
-    branches: [ main ]
-
 # Steps to run for the Workflow
 jobs:
   build:
